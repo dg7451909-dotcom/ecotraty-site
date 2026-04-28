@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOTRATY | Eucalipto Tratado em Abrantes e Camaçari</title>
+  <meta name="description" content="Eucalipto tratado direto da fábrica. Mourões, estacas, toras, vigamentos, deck e acessórios em Abrantes, Camaçari e região." />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f3ea;
+      color: #2d2418;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .topbar {
+      background: #1f4d2b;
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      padding: 10px 7%;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: #fff;
+      padding: 14px 7%;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      min-width: 150px;
+    }
+
+    .logo img {
+      width: 220px;
+      height: auto;
+      max-height: 70px;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    nav a:hover {
+      color: #d49b21;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      background: #25d366;
+      color: #fff;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 9px 20px rgba(37, 211, 102, 0.42);
+    }
+
+    .btn.secondary {
+      background: #d49b21;
+      box-shadow: 0 6px 16px rgba(212, 155, 33, 0.3);
+    }
+
+    .btn.secondary:hover {
+      box-shadow: 0 9px 20px rgba(212, 155, 33, 0.38);
+    }
+
+    .hero {
+      min-height: 640px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      align-items: center;
+      gap: 50px;
+      padding: 80px 7%;
+      color: #fff;
+      background-image: linear-gradient(90deg, rgba(31, 77, 43, 0.96), rgba(31, 77, 43, 0.78)), url("WhatsApp Image 2026-04-11 at 22.41.30.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero h1 {
+      margin-bottom: 18px;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.05;
+    }
+
+    .hero h1 span {
+      color: #ffd36b;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin-bottom: 24px;
+      color: #f6f1e7;
+      font-size: 20px;
+    }
+
+    .hero-highlight {
+      margin-top: -8px;
+      color: #ffd36b !important;
+      font-weight: 900;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 800;
+    }
+
+    .hero-card {
+      background: #fff;
+      color: #2d2418;
+      padding: 30px;
+      border-radius: 22px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-card h2 {
+      margin-bottom: 14px;
+      color: #1f4d2b;
+      font-size: 28px;
+    }
+
+    .hero-card p {
+      color: #5b4a36;
+      font-size: 17px;
+      margin-bottom: 0;
+    }
+
+    .hero-card ul {
+      margin: 18px 0 24px 20px;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      max-width: 780px;
+      margin-bottom: 36px;
+    }
+
+    .section-title small {
+      color: #d49b21;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      margin-top: 8px;
+      color: #1f4d2b;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+    }
+
+    .section-title p {
+      margin-top: 10px;
+      color: #5b4a36;
+      font-size: 18px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #eadfca;
+      border-radius: 20px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .product-content {
+      padding: 22px;
+    }
+
+    .product-content h3 {
+      margin-bottom: 8px;
+      color: #1f4d2b;
+      font-size: 22px;
+    }
+
+    .product-content p {
+      min-height: 78px;
+      margin-bottom: 18px;
+      color: #5b4a36;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+      align-items: center;
+      gap: 45px;
+      background: #1f4d2b;
+      color: #fff;
+    }
+
+    .about-img {
+      width: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .about h2 {
+      margin-bottom: 16px;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.15;
+    }
+
+    .about p {
+      margin-bottom: 18px;
+      color: #f2eadc;
+      font-size: 18px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .feature {
+      background: #fff;
+      padding: 28px;
+      border-left: 7px solid #d49b21;
+      border-radius: 20px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+      color: #1f4d2b;
+      font-size: 22px;
+    }
+
+    .feature p {
+      color: #5b4a36;
+    }
+
+    .quote {
+      background: linear-gradient(90deg, #d49b21, #f2c04b);
+      color: #241a0f;
+      text-align: center;
+    }
+
+    .quote h2 {
+      margin-bottom: 14px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.15;
+    }
+
+    .quote p {
+      margin-bottom: 25px;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .contact-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+    }
+
+    .contact-box h3 {
+      margin-bottom: 15px;
+      color: #1f4d2b;
+      font-size: 26px;
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+      color: #5b4a36;
+      font-size: 17px;
+    }
+
+    footer {
+      background: #15100b;
+      color: #fff;
+      padding: 28px 7%;
+      text-align: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 20;
+      background: #25d366;
+      color: #fff;
+      padding: 16px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    @media (max-width: 1100px) {
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 980px) {
+      nav {
+        display: none;
+      }
+
+      .hero,
+      .about,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .product-content p {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .topbar,
+      header,
+      section,
+      .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      header {
+        align-items: center;
+      }
+
+      .logo img {
+        width: 170px;
+        max-height: 56px;
+      }
+
+      header .btn {
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 55px;
+        padding-bottom: 55px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .hero-card {
+        padding: 22px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-img {
+        height: 230px;
+      }
+
+      .about-img {
+        min-height: 320px;
+      }
+
+      .whatsapp-float {
+        right: 16px;
+        left: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div>📍 Abrantes, Camaçari-BA e região</div>
+    <div>🌳 Eucalipto tratado direto da fábrica</div>
+  </div>
+
+  <header>
+    <a class="logo" href="#topo" aria-label="ECOTRATY Eucalipto Tratado">
+      <img src="WhatsApp_Image_2026-04-15_at_20.21.11-removebg-preview.png" alt="ECOTRATY Eucalipto Tratado" />
+    </a>
+    <nav aria-label="Menu principal">
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#vantagens">Vantagens</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn" href="https://wa.me/5571997333180?text=Ol%C3%A1%2C%20quero%20fazer%20um%20or%C3%A7amento%20de%20eucalipto%20tratado" target="_blank" rel="noopener">Pedir orçamento</a>
+  </header>
+
+  <main id="topo">
+    <section class="hero" aria-label="Apresentação da ECOTRATY">
+      <div>
+        <h1>ECOTRATY <span>Eucalipto Tratado</span></h1>
+        <p>Mourões, estacas, toras, vigamentos, deck e acessórios com qualidade, preço justo e pronta entrega em Abrantes, Camaçari e região.</p>
+        <p class="hero-highlight">Direto da fábrica • Atendimento rápido pelo WhatsApp</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://wa.me/5571997333180?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento" target="_blank" rel="noopener">Pedir orçamento agora</a>
+          <a class="btn secondary" href="#produtos">Ver produtos</a>
+        </div>
+        <div class="badges">
+          <div class="badge">✅ Pronta entrega</div>
+          <div class="badge">✅ Madeira tratada</div>
+          <div class="badge">✅ Atendimento rápido</div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h2>Solicite seu orçamento agora</h2>
+        <p>Fale com nossa equipe e informe a medida, quantidade e local de entrega.</p>
+        <ul>
+          <li>Estacas para cerca</li>
+          <li>Mourões tratados</li>
+          <li>Toras e vigamentos</li>
+          <li>Deck pinus tratado</li>
+          <li>Ferragens e acessórios</li>
+          <li>Entrega para Camaçari e região</li>
+        </ul>
+        <a class="btn" href="https://wa.me/5571997333180?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20fazer%20um%20or%C3%A7amento" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+    </section>
+
+    <section id="produtos">
+      <div class="section-title">
+        <small>Nossos produtos</small>
+        <h2>Madeira tratada para obra, cerca, rancho e área externa</h2>
+        <p>Trabalhamos com peças selecionadas para quem busca resistência, durabilidade e acabamento rústico.</p>
+      </div>
+
+      <div class="products">
+        <article class="product-card">
+          <img class="product-img" src="WhatsApp Image 2026-04-11 at 22.41.31.jpeg" alt="Estacas de eucalipto tratado empilhadas no estoque" loading="lazy" />
+          <div class="product-content">
+            <h3>Estacas para cerca</h3>
+            <p>Opções em diversas medidas para cercamento rural, sítios, chácaras e terrenos.</p>
+            <a class="btn" href="https://wa.me/5571997333180?text=Quero%20or%C3%A7amento%20de%20estacas%20para%20cerca" target="_blank" rel="noopener">Orçar estacas</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-img" src="WhatsApp Image 2026-04-11 at 22.41.35.jpeg" alt="Mourões tratados armazenados no galpão" loading="lazy" />
+          <div class="product-content">
+            <h3>Mourões tratados</h3>
+            <p>Mourões resistentes para cerca, curral, contenção e estruturas externas.</p>
+            <a class="btn" href="https://wa.me/5571997333180?text=Quero%20or%C3%A7amento%20de%20mour%C3%B5es%20tratados" target="_blank" rel="noopener">Orçar mourões</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-img" src="WhatsApp Image 2026-04-11 at 22.41.36 (1).jpeg" alt="Toras e vigamentos de eucalipto tratado com chapas nas pontas" loading="lazy" />
+          <div class="product-content">
+            <h3>Toras e vigamentos</h3>
+            <p>Peças para pergolados, coberturas, estruturas rústicas e projetos especiais.</p>
+            <a class="btn" href="https://wa.me/5571997333180?text=Quero%20or%C3%A7amento%20de%20toras%20e%20vigamentos" target="_blank" rel="noopener">Orçar toras</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img class="product-img" src="WhatsApp Image 2026-04-11 at 22.41.36.jpeg" alt="Carga de madeira tratada e arame na carroceria" loading="lazy" />
+          <div class="product-content">
+            <h3>Deck tratado</h3>
+            <p>Deck para área gourmet, piscina, varanda, jardim e ambientes externos.</p>
+            <a class="btn" href="https://wa.me/5571997333180?text=Quero%20or%C3%A7amento%20de%20deck%20tratado" target="_blank" rel="noopener">Orçar deck</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="sobre" class="about">
+      <img class="about-img" src="WhatsApp Image 2026-04-11 at 22.41.30.jpeg" alt="Caminhão carregado com eucalipto tratado da ECOTRATY" loading="lazy" />
+      <div>
+        <h2>ECOTRATY Eucalipto Tratado</h2>
+        <p>Somos especializados em venda de eucalipto tratado para clientes que procuram qualidade, resistência e preço competitivo.</p>
+        <p>Atendemos obras, fazendas, sítios, chácaras, construtores, arquitetos e clientes que desejam transformar seus espaços com madeira tratada.</p>
+        <p><strong>Temos produtos a pronta entrega e atendimento direto pelo WhatsApp.</strong></p>
+        <a class="btn secondary" href="https://wa.me/5571997333180?text=Quero%20conhecer%20melhor%20os%20produtos%20da%20ECOTRATY" target="_blank" rel="noopener">Falar com a ECOTRATY</a>
+      </div>
+    </section>
+
+    <section id="vantagens">
+      <div class="section-title">
+        <small>Por que comprar conosco?</small>
+        <h2>Qualidade, agilidade e preço atrativo</h2>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <h3>Direto da fábrica</h3>
+          <p>Condição mais competitiva para quem precisa comprar madeira tratada com bom custo-benefício.</p>
+        </div>
+        <div class="feature">
+          <h3>Pronta entrega</h3>
+          <p>Produtos disponíveis para agilizar sua obra, cerca ou projeto externo.</p>
+        </div>
+        <div class="feature">
+          <h3>Atendimento rápido</h3>
+          <p>Você chama no WhatsApp, informa a medida e recebe orientação para fechar o pedido.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote">
+      <h2>Quer fazer sua cerca, deck ou estrutura rústica?</h2>
+      <p>Chame agora e peça seu orçamento com a ECOTRATY.</p>
+      <a class="btn" href="https://wa.me/5571997333180?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20com%20a%20ECOTRATY" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+    </section>
+
+    <section id="contato">
+      <div class="section-title">
+        <small>Contato</small>
+        <h2>Fale com a gente</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-box">
+          <h3>Atendimento</h3>
+          <p><strong>WhatsApp:</strong> (71) 99733-3180</p>
+          <p><strong>Instagram:</strong> @ecotraty</p>
+          <p><strong>Localização:</strong> Abrantes, Camaçari-BA</p>
+          <a class="btn" href="https://wa.me/5571997333180?text=Ol%C3%A1%2C%20quero%20fazer%20um%20or%C3%A7amento" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        </div>
+
+        <div class="contact-box">
+          <h3>Como pedir orçamento?</h3>
+          <p>Envie a medida que precisa, quantidade aproximada, tipo de produto e local de entrega.</p>
+          <p>Nossa equipe responde com as opções disponíveis e ajuda você a escolher o material ideal.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 ECOTRATY Eucalipto Tratado. Todos os direitos reservados.</p>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5571997333180?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento" target="_blank" rel="noopener">💬 Orçamento pelo WhatsApp</a>
+</body>
+</html
